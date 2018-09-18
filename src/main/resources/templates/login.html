@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/><!-- la techno xml oblige que toute les balises doivent être fermés -->
+<title>Authentification</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+		th:href="@{css/bootstrap.min.css}"/><!-- si on laisse l'attribut href de link bootstrap ne va pas s'exécuter d'où la nécessiter d'ajouter th:href mais garder les deux href -->
+<link rel="stylesheet" type="text/css" href="../static/css/myStyle.css"
+		th:href="@{css/myStyle.css}"/>
+</head>
+<body>
+<div class="col-md-6 spacer"> 
+	<div class="panel panel-info">
+		<div class="panel-heading">Authentification</div>
+			<div class="panel-body">
+				<form th:action="@{/login}" method="post"><!-- lorsqu'on w avec thymeleaf on use th:action et acrion simplement. @{/login} se lis apllicaionContext slash login -->
+					<div class="form-group">
+						<label class="control-label">Login: </label>
+						<input class="form-control" type="text" name="username" placeholder="your User name"/><!-- name="username":on doit ecrire ainsi car ce spring qui va s'en charger de recupere les donnees -->
+					</div><br>
+					<div class="form-group">
+						<label class="control-label">Password: </label>
+						<input class="form-control" type="password" name="password" placeholder="your User password"/><!-- name="password":on doit ecrire ainsi car ce spring qui va s'en charger de recupere les donnees -->
+					</div>
+					<input class="btn btn-primary" type="submit" value="Login"/> 
+				</form>
+		</div>
+	</div>
+  </div>	
+</body>
+</html>
